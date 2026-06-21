@@ -25,6 +25,6 @@ internal class NewsServiceImpl(
     }
 
     companion object {
-        private const val API_NEWS_ENDPOINT = "https://webapi.autodoc.ru/api/news/1/15"
+        private const val API_NEWS_ENDPOINT = "https://webapi.autodoc.ru/api/news"
     }
 }
