@@ -1,10 +1,8 @@
 package com.autodoc.project.screens
 
-import com.autodoc.project.services.news.NewsService
-import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
+import com.autodoc.project.services.news.NewsRepository
 
-class NewsViewModel(): KoinComponent {
+class NewsViewModel {
 
-    private val newsService: NewsService by inject()
+    private val repository = NewsRepository()
 }
