@@ -1,13 +1,16 @@
 package com.autodoc.project.screens
 
 import com.rickclephas.kmp.nativecoroutines.NativeCoroutinesState
-import com.autodoc.project.services.news.NewsRepository
-import com.autodoc.project.services.news.NewsModel
+import com.rickclephas.kmp.observableviewmodel.ViewModel
+import com.rickclephas.kmp.observableviewmodel.stateIn
+
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.stateIn
 
-class NewsViewModel {
+import com.autodoc.project.services.news.NewsRepository
+import com.autodoc.project.services.news.NewsModel
+
+class NewsViewModel: ViewModel() {
 
     private val repository = NewsRepository()
 
