@@ -12,13 +12,17 @@ import com.autodoc.project.services.news.NewsModel
 
 class NewsViewModel: ViewModel() {
 
-    private val repository = NewsRepository()
+    private val newsRepository = NewsRepository()
 
     @NativeCoroutinesState
-    val news: StateFlow<List<NewsModel>> = repository.news
+    val news: StateFlow<List<NewsModel>> = newsRepository.news
         .stateIn(
             viewModelScope,
             SharingStarted.WhileSubscribed(5000),
             emptyList()
         )
+
+    fun fetchNews(offset: Int, limit: Int) {
+        newsRepository.fetchNews(offset, limit)
+    }
 }
