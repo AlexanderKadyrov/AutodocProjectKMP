@@ -114,6 +114,9 @@
 			);
 			mainGroup = 0B0528ACD308CB61777BD297;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				11FF70CD2FE893C2009803BA /* XCRemoteSwiftPackageReference "KMP-NativeCoroutines" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F6AB3E663BC7C5BFA656DC4C /* Products */;
 			projectDirPath = "";
@@ -374,6 +377,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		11FF70CD2FE893C2009803BA /* XCRemoteSwiftPackageReference "KMP-NativeCoroutines" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rickclephas/KMP-NativeCoroutines.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = C32CC9CA6E4887752391DBA0 /* Project object */;
 }
