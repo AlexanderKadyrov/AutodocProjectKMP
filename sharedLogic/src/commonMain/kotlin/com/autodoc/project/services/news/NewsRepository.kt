@@ -6,6 +6,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import org.koin.core.component.inject
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.launch
 
 internal class NewsRepository: KoinComponent {
 
@@ -14,9 +15,15 @@ internal class NewsRepository: KoinComponent {
     private val coroutineScope = CoroutineScope(SupervisorJob())
     private val storedObjects = MutableStateFlow(emptyList<NewsModel>())
 
-    suspend fun fetchNews(offset: Int, limit: Int): Flow<List<NewsModel>> {
-        val result = newsService.fetchNews(offset, limit)
-        storedObjects.value = result
-        return storedObjects
+    val news: Flow<List<NewsModel>>
+        get() {
+            return storedObjects
+        }
+
+    fun fetchNews(offset: Int, limit: Int) {
+        coroutineScope.launch {
+            val result = newsService.fetchNews(offset, limit)
+            storedObjects.value = result
+        }
     }
 }
