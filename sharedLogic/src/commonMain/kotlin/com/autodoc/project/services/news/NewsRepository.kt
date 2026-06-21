@@ -1,0 +1,22 @@
+package com.autodoc.project.services.news
+
+import kotlinx.coroutines.flow.MutableStateFlow
+import org.koin.core.component.KoinComponent
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.SupervisorJob
+import org.koin.core.component.inject
+import kotlinx.coroutines.flow.Flow
+
+internal class NewsRepository: KoinComponent {
+
+    private val newsService: NewsService by inject()
+
+    private val coroutineScope = CoroutineScope(SupervisorJob())
+    private val storedObjects = MutableStateFlow(emptyList<NewsModel>())
+
+    suspend fun fetchNews(offset: Int, limit: Int): Flow<List<NewsModel>> {
+        val result = newsService.fetchNews(offset, limit)
+        storedObjects.value = result
+        return storedObjects
+    }
+}
