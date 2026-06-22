@@ -1,8 +1,8 @@
 package com.autodoc.project
 
-import androidx.navigation.compose.rememberNavController
 import androidx.compose.material3.MaterialTheme
 import androidx.navigation.compose.composable
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -22,12 +22,13 @@ object ListDestination
 object DetailDestination
 
 @Composable
-fun App() {
+fun App(
+    navController: NavHostController
+) {
     MaterialTheme(
         colorScheme = if (isSystemInDarkTheme()) darkColorScheme() else lightColorScheme()
     ) {
         Surface {
-            val navController = rememberNavController()
             NavHost(
                 navController = navController,
                 startDestination = ListDestination
