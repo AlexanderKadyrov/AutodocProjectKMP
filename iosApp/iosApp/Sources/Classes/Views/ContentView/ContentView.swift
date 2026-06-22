@@ -4,9 +4,11 @@ import SharedLogic
 import SwiftUI
 
 struct ContentView: View {
+    
+    @Environment(\.openURL) private var openURL
 
     @StateViewModel
-    var viewModel = NewsViewModel()
+    private var viewModel = NewsViewModel()
 
     var body: some View {
         List {
@@ -15,6 +17,10 @@ struct ContentView: View {
                     .listRowInsets(.init(.zero))
                     .listRowSeparator(.hidden)
                     .padding(.all, 16)
+                    .onTapGesture {
+                        guard let url = URL(string: model.fullUrl) else { return }
+                        openURL(url)
+                    }
             }
         }
         .listStyle(.plain)
