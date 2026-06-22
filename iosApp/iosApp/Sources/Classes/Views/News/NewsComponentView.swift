@@ -43,7 +43,9 @@ struct NewsComponentView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                 } placeholder: {
-                    
+                    Image("icNewsPlaceholder")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
                 }
                 .cornerRadius(15)
             }
