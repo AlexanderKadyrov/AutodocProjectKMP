@@ -8,7 +8,7 @@ struct NewsComponentView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: .zero) {
             
-            VStack(alignment: .leading, spacing: 16) {
+            VStack(alignment: .leading, spacing: .zero) {
                 
                 VStack(alignment: .leading, spacing: 16) {
                     
@@ -36,7 +36,7 @@ struct NewsComponentView: View {
                         .background(Color(hex: "EE6B6E"))
                     }
                 }
-                .padding([.leading, .trailing], 16)
+                .padding([.leading, .trailing, .bottom], 16)
 
                 if let source = model.titleImageUrl, let url = URL(string: source) {
                     CachedAsyncImage(url: url) { image in
