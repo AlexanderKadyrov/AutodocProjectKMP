@@ -38,7 +38,7 @@ struct NewsComponentView: View {
                 }
                 .padding([.leading, .trailing], 16)
                 
-                AsyncImage(url: URL(string: model.titleImageUrl ?? "")) { image in
+                CachedAsyncImage(url: URL(string: model.titleImageUrl ?? "")) { image in
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fill)
