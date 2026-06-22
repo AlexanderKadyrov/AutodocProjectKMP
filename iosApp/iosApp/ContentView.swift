@@ -9,19 +9,13 @@ struct ContentView: View {
     var viewModel = NewsViewModel()
 
     var body: some View {
-        ZStack {
+        VStack {
             ForEach(viewModel.news, id: \.self) { item in
                 Text(item.title)
             }
         }
         .onAppear {
-            viewModel.fetchNews(offset: 0, limit: 15)
+            viewModel.fetchNews(offset: 1, limit: 15)
         }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
