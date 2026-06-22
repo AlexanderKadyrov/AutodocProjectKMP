@@ -37,7 +37,7 @@ struct NewsComponentView: View {
                     }
                 }
                 .padding([.leading, .trailing], 16)
-                
+
                 if let source = model.titleImageUrl, let url = URL(string: source) {
                     CachedAsyncImage(url: url) { image in
                         image
