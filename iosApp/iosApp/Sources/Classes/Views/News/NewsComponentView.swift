@@ -38,16 +38,18 @@ struct NewsComponentView: View {
                 }
                 .padding([.leading, .trailing], 16)
                 
-                CachedAsyncImage(url: URL(string: model.titleImageUrl ?? "")) { image in
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                } placeholder: {
-                    Image("icNewsPlaceholder")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
+                if let source = model.titleImageUrl, let url = URL(string: source) {
+                    CachedAsyncImage(url: url) { image in
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                    } placeholder: {
+                        Image("icNewsPlaceholder")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                    }
+                    .cornerRadius(15)
                 }
-                .cornerRadius(15)
             }
             .padding(.top, 16)
             .overlay {
