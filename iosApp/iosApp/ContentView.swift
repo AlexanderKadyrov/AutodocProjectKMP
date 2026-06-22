@@ -9,11 +9,15 @@ struct ContentView: View {
     var viewModel = NewsViewModel()
 
     var body: some View {
-        VStack {
-            ForEach(viewModel.news, id: \.self) { item in
-                Text(item.title)
+        List {
+            ForEach(viewModel.news, id: \.self) { model in
+                NewsComponentView(model: model)
+                    .listRowInsets(.init(.zero))
+                    .listRowSeparator(.hidden)
+                    .padding(.all, 16)
             }
         }
+        .listStyle(.plain)
         .onAppear {
             viewModel.fetchNews(offset: 1, limit: 15)
         }
