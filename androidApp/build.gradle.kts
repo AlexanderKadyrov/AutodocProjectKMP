@@ -14,6 +14,8 @@ kotlin {
 }
 
 dependencies {
+    implementation(projects.sharedLogic)
+
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.compose.material3)
