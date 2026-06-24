@@ -3,7 +3,6 @@ package com.autodoc.project.views
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
-import androidx.compose.material3.Text
 
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
@@ -27,7 +26,7 @@ fun ContentView() {
                 contentPadding = WindowInsets.safeDrawing.asPaddingValues()
             ) {
                 items(news) { model ->
-                    Text(model.title)
+                    NewsComponentView(model)
                 }
             }
         } else {
