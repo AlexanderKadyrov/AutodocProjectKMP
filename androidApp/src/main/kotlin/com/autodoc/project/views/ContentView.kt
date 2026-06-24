@@ -1,4 +1,4 @@
-package com.autodoc.project.screens
+package com.autodoc.project.views
 
 import androidx.compose.runtime.Composable
 
