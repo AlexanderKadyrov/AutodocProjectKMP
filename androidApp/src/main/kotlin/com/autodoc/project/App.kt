@@ -13,7 +13,7 @@ import androidx.compose.material3.Surface
 
 import kotlinx.serialization.Serializable
 
-import com.autodoc.project.screens.ContentView
+import com.autodoc.project.views.ContentView
 
 @Serializable
 object ListDestination
