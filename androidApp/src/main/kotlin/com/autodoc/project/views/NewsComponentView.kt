@@ -48,15 +48,17 @@ fun NewsComponentView(model: NewsModel) {
                         fontSize = 12.sp
                     )
                 }
-                AsyncImage(
-                    model = model.titleImageUrl,
-                    contentDescription = model.title,
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .aspectRatio(1f)
-                        .background(Color.LightGray),
-                )
+                model.titleImageUrl?.let {
+                    AsyncImage(
+                        model = it,
+                        contentDescription = model.title,
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .aspectRatio(1f)
+                            .background(Color.LightGray),
+                    )
+                }
             }
         }
     }
