@@ -6,6 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 
 import androidx.compose.foundation.isSystemInDarkTheme
+import com.autodoc.project.services.news.NewsModel
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
@@ -19,7 +20,9 @@ import com.autodoc.project.views.ContentView
 object ListDestination
 
 @Serializable
-object DetailDestination
+data class DetailDestination(
+    val model: NewsModel
+)
 
 @Composable
 fun App(
@@ -34,7 +37,9 @@ fun App(
                 startDestination = ListDestination
             ) {
                 composable<ListDestination> {
-                    ContentView()
+                    ContentView { model ->
+                        navController.navigate(DetailDestination(model))
+                    }
                 }
                 composable<DetailDestination> {
 
