@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.border
 import androidx.compose.material3.Text
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -67,9 +68,10 @@ fun NewsComponentView(
                     contentDescription = model.title,
                     contentScale = ContentScale.Crop,
                     modifier = Modifier
-                        .fillMaxWidth()
+                        .clip(RoundedCornerShape(15.dp))
+                        .background(Color.LightGray)
                         .aspectRatio(1f)
-                        .background(Color.LightGray),
+                        .fillMaxWidth()
                 )
             }
         }
