@@ -6,22 +6,23 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 
 import androidx.compose.foundation.isSystemInDarkTheme
-import com.autodoc.project.services.news.NewsModel
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.material3.Surface
+import androidx.navigation.toRoute
 
 import kotlinx.serialization.Serializable
 
-import com.autodoc.project.views.ContentView
+import com.autodoc.project.views.CustomWebView
+import com.autodoc.project.views.NewsListView
 
 @Serializable
-object ListDestination
+object NewsListView
 
 @Serializable
 data class DetailDestination(
-    val model: NewsModel
+    val url: String
 )
 
 @Composable
@@ -34,15 +35,16 @@ fun App(
         Surface {
             NavHost(
                 navController = navController,
-                startDestination = ListDestination
+                startDestination = NewsListView
             ) {
-                composable<ListDestination> {
-                    ContentView { model ->
-                        navController.navigate(DetailDestination(model))
+                composable<NewsListView> {
+                    NewsListView { url ->
+                        navController.navigate(DetailDestination(url))
                     }
                 }
-                composable<DetailDestination> {
-
+                composable<DetailDestination> { backStackEntry ->
+                    val url = backStackEntry.toRoute<DetailDestination>().url
+                    CustomWebView(url)
                 }
             }
         }
