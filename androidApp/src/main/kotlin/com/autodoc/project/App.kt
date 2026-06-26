@@ -14,6 +14,7 @@ import androidx.navigation.toRoute
 
 import kotlinx.serialization.Serializable
 
+import com.autodoc.project.views.NavigationTopAppBarBar
 import com.autodoc.project.views.CustomWebView
 import com.autodoc.project.views.NewsListView
 
@@ -43,8 +44,13 @@ fun App(
                     }
                 }
                 composable<DetailDestination> { backStackEntry ->
-                    val url = backStackEntry.toRoute<DetailDestination>().url
-                    CustomWebView(url)
+                    NavigationTopAppBarBar(
+                        onBackClick = {
+                            navController.popBackStack()
+                        }) {
+                        val url = backStackEntry.toRoute<DetailDestination>().url
+                        CustomWebView(url)
+                    }
                 }
             }
         }
