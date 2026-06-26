@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import com.autodoc.project.destinations.NewsDetailView
 import com.autodoc.project.destinations.NewsListView
 
-import com.autodoc.project.views.NavigationTopAppBarBar
+import com.autodoc.project.views.NavigationTopAppBar
 import com.autodoc.project.views.NavigationHost
 import com.autodoc.project.views.CustomWebView
 import com.autodoc.project.views.NewsListView
@@ -30,7 +30,7 @@ fun App() {
             }
         }
         composable<NewsDetailView> { backStackEntry ->
-            NavigationTopAppBarBar(
+            NavigationTopAppBar(
                 onBackClick = {
                     navController.popBackStack()
                 }) { paddingValues ->
