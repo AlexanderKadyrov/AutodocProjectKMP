@@ -1,11 +1,11 @@
 # AutodocProjectKMP - тестовое задание
 
-Добрый день!
+Hello!
 
-Предлагаю Вашему вниманию выполненное тестовое задание AutodocProjectKMP.
-Проект выполнен для платформ iOS и Android.
+I present to you the completed test assignment for AutodocProjectKMP.
+The project is designed for iOS and Android platforms.
 
-Предназначение проекта продемонстрировать навыки и умения автора работать с технологиями мобильной разработки.
+The purpose of the project is to demonstrate the author's skills and abilities in working with mobile development technologies.
 
 # Описание
 
