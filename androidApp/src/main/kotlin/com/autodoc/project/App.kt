@@ -25,8 +25,10 @@ fun App() {
         startDestination = NewsListView
     ) {
         composable<NewsListView> {
-            NewsListView { url ->
-                navController.navigate(NewsDetailView(url))
+            NavigationTopAppBar(title = "News") {
+                NewsListView { url ->
+                    navController.navigate(NewsDetailView(url))
+                }
             }
         }
         composable<NewsDetailView> { backStackEntry ->
