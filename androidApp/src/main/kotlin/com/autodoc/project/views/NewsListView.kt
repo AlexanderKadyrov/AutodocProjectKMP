@@ -2,9 +2,6 @@ package com.autodoc.project.views
 
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
-import androidx.compose.foundation.layout.asPaddingValues
-import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.LaunchedEffect
@@ -26,9 +23,7 @@ fun NewsListView(
         viewModel.fetchNews(1, 15)
     }
     val news by viewModel.news.collectAsStateWithLifecycle()
-    LazyColumn(
-        contentPadding = WindowInsets.safeDrawing.asPaddingValues()
-    ) {
+    LazyColumn {
         items(news) { model ->
             NewsComponentView(
                 model = model,
