@@ -12,10 +12,10 @@
 В проекте реализован экран новостной ленты.
 
 ### Main
-![](https://github.com/AlexanderKadyrov/AutodocProjectKMP/blob/master/Screenshots/screenshot_1.png?raw=true)
+![](https://github.com/AlexanderKadyrov/AutodocProjectKMP/blob/master/screenshots/screenshot_1.png?raw=true)
 
 ### iOS
-![](https://github.com/AlexanderKadyrov/AutodocProjectKMP/blob/master/Screenshots/screenshot_2.png?raw=true)
+![](https://github.com/AlexanderKadyrov/AutodocProjectKMP/blob/master/screenshots/screenshot_2.png?raw=true)
 
 ### Android
-![](https://github.com/AlexanderKadyrov/AutodocProjectKMP/blob/master/Screenshots/screenshot_3.png?raw=true)
+![](https://github.com/AlexanderKadyrov/AutodocProjectKMP/blob/master/screenshots/screenshot_3.png?raw=true)
