@@ -5,20 +5,13 @@ import androidx.navigation.compose.composable
 import androidx.compose.runtime.Composable
 import androidx.navigation.toRoute
 
-import kotlinx.serialization.Serializable
+import com.autodoc.project.destinations.NewsDetailView
+import com.autodoc.project.destinations.NewsListView
 
 import com.autodoc.project.views.NavigationTopAppBarBar
 import com.autodoc.project.views.NavigationHost
 import com.autodoc.project.views.CustomWebView
 import com.autodoc.project.views.NewsListView
-
-@Serializable
-object NewsListView
-
-@Serializable
-data class NewsDetailView(
-    val url: String
-)
 
 @Composable
 fun App() {
