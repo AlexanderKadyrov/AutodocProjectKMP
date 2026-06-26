@@ -12,10 +12,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.border
 import androidx.compose.material3.Text
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -51,16 +53,24 @@ fun NewsComponentView(
                     fontSize = 14.sp,
                 )
                 Row(
-                    horizontalArrangement = Arrangement.spacedBy(16.dp)
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(
                         text = model.publishedDate,
                         fontSize = 12.sp
                     )
-                    Text(
-                        text = model.categoryType,
-                        fontSize = 12.sp
-                    )
+                    Box(
+                        modifier = Modifier.background(Color(0xFFEE6B6E))
+                    ) {
+                        Text(
+                            text = model.categoryType,
+                            color = Color.White,
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 2.dp),
+                            fontSize = 12.sp
+                        )
+                    }
                 }
             }
             model.titleImageUrl?.let {
