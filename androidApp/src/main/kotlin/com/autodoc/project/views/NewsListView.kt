@@ -15,12 +15,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
-import com.autodoc.project.services.news.NewsModel
 import com.autodoc.project.screens.NewsViewModel
 
 @Composable
-fun ContentView(
-    clickable: (NewsModel) -> Unit
+fun NewsListView(
+    clickable: (String) -> Unit
 ) {
     val viewModel = NewsViewModel()
     LaunchedEffect(Unit) {
@@ -36,7 +35,7 @@ fun ContentView(
                 modifier = Modifier
                     .padding(16.dp)
                     .clickable {
-                        clickable(model)
+                        clickable(model.fullUrl)
                     }
             )
         }
