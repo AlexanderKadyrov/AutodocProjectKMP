@@ -9,8 +9,6 @@ import androidx.compose.ui.Modifier
 import android.webkit.WebViewClient
 import android.webkit.WebView
 
-import android.view.ViewGroup
-
 @SuppressLint("SetJavaScriptEnabled")
 @Composable
 fun CustomWebView(
@@ -20,16 +18,10 @@ fun CustomWebView(
         modifier = Modifier.fillMaxSize(),
         factory = { context ->
             WebView(context).apply {
-                layoutParams = ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.MATCH_PARENT
-                )
                 webViewClient = WebViewClient()
                 settings.javaScriptEnabled = true
+                loadUrl(url)
             }
-        },
-        update = { webView ->
-            webView.loadUrl(url)
         }
     )
 }
