@@ -6,6 +6,8 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.systemBars
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.Box
 import androidx.compose.material.icons.Icons
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.TopAppBar
@@ -40,6 +42,10 @@ fun NavigationTopAppBar(
             )
         },
         modifier = Modifier.windowInsetsPadding(WindowInsets.systemBars),
-        content = content
+        content = { paddingValues ->
+            Box(modifier = Modifier.padding(paddingValues)) {
+                content(paddingValues)
+            }
+        }
     )
 }
