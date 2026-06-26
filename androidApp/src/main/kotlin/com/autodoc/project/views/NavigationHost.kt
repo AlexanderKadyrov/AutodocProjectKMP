@@ -9,11 +9,11 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.NavHost
 import androidx.compose.material3.Surface
-import com.autodoc.project.NewsListView
 
 @Composable
 fun NavigationHost(
     navController: NavHostController,
+    startDestination: Any,
     builder: NavGraphBuilder.() -> Unit
 ) {
     MaterialTheme(
@@ -22,7 +22,7 @@ fun NavigationHost(
         Surface {
             NavHost(
                 navController = navController,
-                startDestination = NewsListView,
+                startDestination = startDestination,
                 builder = builder
             )
         }
