@@ -4,11 +4,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
 
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-
 import com.autodoc.project.destinations.NewsDetailView
 import com.autodoc.project.destinations.NewsListView
 
@@ -35,11 +31,9 @@ fun App() {
             NavigationTopAppBar(
                 onBackClick = {
                     navController.popBackStack()
-                }) { paddingValues ->
-                Box(modifier = Modifier.padding(paddingValues)) {
-                    val destination = backStackEntry.toRoute<NewsDetailView>()
-                    CustomWebView(destination.url)
-                }
+                }) {
+                val destination = backStackEntry.toRoute<NewsDetailView>()
+                CustomWebView(destination.url)
             }
         }
     }
