@@ -12,21 +12,29 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
 
 @Composable
 fun NavigationTopAppBar(
-    onBackClick: () -> Unit,
+    title: String?,
+    backClick: (() -> Unit)?,
     content: @Composable ((PaddingValues) -> Unit)
 ): Unit {
     Scaffold(
         topBar = {
             @OptIn(ExperimentalMaterial3Api::class)
             TopAppBar(
-                title = {},
+                title = {
+                    title?.let {
+                        Text(it)
+                    }
+                },
                 navigationIcon = {
-                    IconButton(onClick = onBackClick) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back")
+                    backClick?.let {
+                        IconButton(onClick = it) {
+                            Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back")
+                        }
                     }
                 }
             )
