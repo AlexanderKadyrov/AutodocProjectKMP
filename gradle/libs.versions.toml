@@ -19,6 +19,7 @@ kmpNativeCoroutines = "1.0.1"
 kmpObservableViewmodel = "1.0.2"
 compose-navigation = "2.9.7"
 coil = "3.4.0"
+compose-material-icons = "1.7.3"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -49,6 +50,7 @@ kmp-observable-viewmodel = { module = "com.rickclephas.kmp:kmp-observableviewmod
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "compose-navigation" }
 coil-network-ktor = { group = "io.coil-kt.coil3", name = "coil-network-ktor3", version.ref = "coil" }
 coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil" }
+compose-material-icons-core = { module = "org.jetbrains.compose.material:material-icons-core", version.ref = "compose-material-icons" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
