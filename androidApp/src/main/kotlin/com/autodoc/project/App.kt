@@ -1,7 +1,7 @@
 package com.autodoc.project
 
+import androidx.navigation.compose.rememberNavController
 import androidx.navigation.compose.composable
-import androidx.navigation.NavHostController
 import androidx.compose.runtime.Composable
 import androidx.navigation.toRoute
 
@@ -21,9 +21,8 @@ data class NewsDetailView(
 )
 
 @Composable
-fun App(
-    navController: NavHostController
-) {
+fun App() {
+    val navController = rememberNavController()
     NavigationHost(
         navController = navController,
         startDestination = NewsListView
