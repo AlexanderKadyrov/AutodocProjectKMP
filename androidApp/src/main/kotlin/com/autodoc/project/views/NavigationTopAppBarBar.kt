@@ -17,8 +17,8 @@ import androidx.compose.ui.Modifier
 
 @Composable
 fun NavigationTopAppBar(
-    title: String?,
-    backClick: (() -> Unit)?,
+    title: String? = null,
+    onBackClick: (() -> Unit)? = null,
     content: @Composable ((PaddingValues) -> Unit)
 ): Unit {
     Scaffold(
@@ -31,7 +31,7 @@ fun NavigationTopAppBar(
                     }
                 },
                 navigationIcon = {
-                    backClick?.let {
+                    onBackClick?.let {
                         IconButton(onClick = it) {
                             Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back")
                         }
