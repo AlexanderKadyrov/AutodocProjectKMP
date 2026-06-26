@@ -1,4 +1,4 @@
-# AutodocProjectKMP - тестовое задание
+# AutodocProjectKMP - test task
 
 Hello!
 
@@ -7,9 +7,9 @@ The project is designed for iOS and Android platforms.
 
 The purpose of the project is to demonstrate the author's skills and abilities in working with mobile development technologies.
 
-# Описание
+# Description
 
-В проекте реализован экран новостной ленты.
+The project implements a news feed screen.
 
 ### Main
 ![](https://github.com/AlexanderKadyrov/AutodocProjectKMP/blob/master/screenshots/screenshot_1.png?raw=true)
