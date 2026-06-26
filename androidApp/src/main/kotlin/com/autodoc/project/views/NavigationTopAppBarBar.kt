@@ -15,7 +15,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.ui.Modifier
 
 @Composable
-public fun NavigationTopAppBarBar(
+fun NavigationTopAppBar(
     onBackClick: () -> Unit,
     content: @Composable ((PaddingValues) -> Unit)
 ): Unit {
