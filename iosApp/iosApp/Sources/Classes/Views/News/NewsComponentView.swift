@@ -8,7 +8,7 @@ struct NewsComponentView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: .zero) {
             
-            VStack(alignment: .leading, spacing: 16) {
+            VStack(alignment: .leading, spacing: .zero) {
                 
                 VStack(alignment: .leading, spacing: 16) {
                     
@@ -36,18 +36,20 @@ struct NewsComponentView: View {
                         .background(Color(hex: "EE6B6E"))
                     }
                 }
-                .padding([.leading, .trailing], 16)
-                
-                CachedAsyncImage(url: URL(string: model.titleImageUrl ?? "")) { image in
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                } placeholder: {
-                    Image("icNewsPlaceholder")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
+                .padding([.leading, .trailing, .bottom], 16)
+
+                if let source = model.titleImageUrl, let url = URL(string: source) {
+                    CachedAsyncImage(url: url) { image in
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                    } placeholder: {
+                        Image("icNewsPlaceholder")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                    }
+                    .cornerRadius(15)
                 }
-                .cornerRadius(15)
             }
             .padding(.top, 16)
             .overlay {
