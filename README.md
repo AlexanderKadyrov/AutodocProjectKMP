@@ -1,28 +1,21 @@
-This is a Kotlin Multiplatform project targeting Android, iOS.
+# AutodocProjectKMP - тестовое задание
 
-* [/iosApp](./iosApp/iosApp) contains an iOS application. Even if you’re sharing your UI with Compose Multiplatform,
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+Добрый день!
 
-* [/sharedLogic](./sharedLogic/src) is for the code that will be shared between app targets in the project.
-  The most important subfolder is [commonMain](./sharedLogic/src/commonMain/kotlin). If preferred, you
-  can add code to the platform-specific folders here too.
+Предлагаю Вашему вниманию выполненное тестовое задание AutodocProjectKMP.
+Проект выполнен для платформ iOS и Android.
 
-* [/sharedUI](./sharedUI/src) is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - [commonMain](./sharedUI/src/commonMain/kotlin) is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    the [iosMain](./sharedUI/src/iosMain/kotlin) folder would be the right place for such calls.
-    Similarly, if you want to edit the Desktop (JVM) specific part, the [jvmMain](./sharedUI/src/jvmMain/kotlin)
-    folder is the appropriate location.
+Предназначение проекта продемонстрировать навыки и умения автора работать с технологиями мобильной разработки.
 
-### Running the apps
+# Описание
 
-Use the run configurations provided by the run widget in your IDE's toolbar. You can also use these commands and options:
+В проекте реализован экран новостной ленты.
 
-- Android app: `./gradlew :androidApp:assembleDebug`
-- iOS app: open the [/iosApp](./iosApp) directory in Xcode and run it from there.
+### Main
+![](https://github.com/AlexanderKadyrov/AutodocProjectKMP/blob/master/Screenshots/screenshot_1.png?raw=true)
 
----
+### iOS
+![](https://github.com/AlexanderKadyrov/AutodocProjectKMP/blob/master/Screenshots/screenshot_2.png?raw=true)
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+### Android
+![](https://github.com/AlexanderKadyrov/AutodocProjectKMP/blob/master/Screenshots/screenshot_3.png?raw=true)
