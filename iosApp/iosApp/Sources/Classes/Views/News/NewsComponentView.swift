@@ -22,7 +22,7 @@ struct NewsComponentView: View {
                     
                     HStack(alignment: .center, spacing: 16) {
                         
-                        Text(model.publishedDate)
+                        Text(model.formattedDate())
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .font(Font.system(size: 12))
                         

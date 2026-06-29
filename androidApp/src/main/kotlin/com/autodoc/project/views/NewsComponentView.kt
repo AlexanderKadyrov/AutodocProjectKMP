@@ -58,7 +58,7 @@ fun NewsComponentView(
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(
-                        text = model.publishedDate,
+                        text = model.formattedDate(),
                         fontSize = 12.sp
                     )
                     Box(
