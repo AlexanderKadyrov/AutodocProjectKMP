@@ -11,7 +11,9 @@ data class NewsModel(
     @SerialName("description")
     val descriptions: String,
 
+    @Serializable(with = DateTimeSerializer::class)
     val publishedDate: String,
+
     val url: String,
     val fullUrl: String,
     val titleImageUrl: String? = null,
