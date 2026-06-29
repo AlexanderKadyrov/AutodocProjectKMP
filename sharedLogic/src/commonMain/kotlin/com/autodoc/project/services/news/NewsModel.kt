@@ -23,8 +23,8 @@ data class NewsModel(
 ) {
     @OptIn(FormatStringsInDatetimeFormats::class)
     fun formattedDate(): String {
-        val inputFormat = LocalDateTime.Format { byUnicodePattern("yyyy-MM-dd HH:mm:ss") }
-        val outputFormat = LocalDateTime.Format { byUnicodePattern("dd MMMM yyyy") }
+        val inputFormat = LocalDateTime.Format { byUnicodePattern("yyyy-MM-dd'T'HH:mm:ss[.SSS]") }
+        val outputFormat = LocalDateTime.Format { byUnicodePattern("dd.MM.yyyy") }
         val dateTime = inputFormat.parse(publishedDate)
         return outputFormat.format(dateTime)
     }
