@@ -9,7 +9,7 @@ internal class NewsServiceImpl(
     private val client: HttpClient
 ): NewsService {
 
-    override suspend fun fetchNews(offset: Int, limit: Int): List<NewsModel> {
+    override suspend fun fetchNews(offset: Int, limit: Int): List<NewsEntity> {
         return fetchNewsResponse(offset, limit).news
     }
 

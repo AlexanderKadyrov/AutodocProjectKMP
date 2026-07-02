@@ -13,9 +13,9 @@ internal class NewsRepository: KoinComponent {
     private val newsService: NewsService by inject()
 
     private val coroutineScope = CoroutineScope(SupervisorJob())
-    private val storedObjects = MutableStateFlow(emptyList<NewsModel>())
+    private val storedObjects = MutableStateFlow(emptyList<NewsEntity>())
 
-    val news: Flow<List<NewsModel>>
+    val news: Flow<List<NewsEntity>>
         get() {
             return storedObjects
         }

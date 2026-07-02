@@ -8,7 +8,7 @@ import androidx.room.Entity
 
 @Entity
 @Serializable
-data class NewsModel(
+data class NewsEntity(
 
     @PrimaryKey
     val id: Int,

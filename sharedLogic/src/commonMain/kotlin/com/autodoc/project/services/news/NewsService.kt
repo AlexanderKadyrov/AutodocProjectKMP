@@ -1,5 +1,5 @@
 package com.autodoc.project.services.news
 
 internal interface NewsService {
-    suspend fun fetchNews(offset: Int, limit: Int): List<NewsModel>
+    suspend fun fetchNews(offset: Int, limit: Int): List<NewsEntity>
 }

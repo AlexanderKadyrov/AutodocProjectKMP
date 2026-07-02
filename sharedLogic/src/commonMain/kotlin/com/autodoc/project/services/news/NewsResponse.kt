@@ -4,5 +4,5 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 internal data class NewsResponse(
-    val news: List<NewsModel>
+    val news: List<NewsEntity>
 )
