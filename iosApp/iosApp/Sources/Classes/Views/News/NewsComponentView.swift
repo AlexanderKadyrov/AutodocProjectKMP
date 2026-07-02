@@ -3,7 +3,7 @@ import SwiftUI
 
 struct NewsComponentView: View {
     
-    var model: NewsModel
+    var model: NewsEntity
     
     var body: some View {
         VStack(alignment: .leading, spacing: .zero) {
