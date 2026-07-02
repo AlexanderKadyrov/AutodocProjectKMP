@@ -3,9 +3,16 @@ package com.autodoc.project.services.news
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.SerialName
 
+import androidx.room.PrimaryKey
+import androidx.room.Entity
+
+@Entity
 @Serializable
-data class NewsModel(
+data class NewsEntity(
+
+    @PrimaryKey
     val id: Int,
+
     val title: String,
 
     @SerialName("description")

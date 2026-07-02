@@ -1,6 +1,6 @@
 package com.autodoc.project.views
 
-import com.autodoc.project.services.news.NewsModel
+import com.autodoc.project.services.news.NewsEntity
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -26,7 +26,7 @@ import coil3.compose.AsyncImage
 
 @Composable
 fun NewsComponentView(
-    model: NewsModel,
+    model: NewsEntity,
     modifier: Modifier
 ) {
     Column(

@@ -5,7 +5,7 @@ import SwiftUI
 struct iOSApp: App {
 
     init() {
-        KoinKt.doInitKoin()
+        DIKt.doInitKoin()
     }
 
     var body: some Scene {
