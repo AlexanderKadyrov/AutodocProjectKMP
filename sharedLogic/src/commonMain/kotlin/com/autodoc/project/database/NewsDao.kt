@@ -1,12 +1,10 @@
-package com.autodoc.project.dao.news
+package com.autodoc.project.database
 
-import com.autodoc.project.services.news.NewsEntity
-
-import kotlinx.coroutines.flow.Flow
-
+import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import androidx.room.Dao
+import com.autodoc.project.services.news.NewsEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 internal interface NewsDao {
