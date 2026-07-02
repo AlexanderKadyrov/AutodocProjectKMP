@@ -5,6 +5,8 @@ plugins {
     alias(libs.plugins.androidMultiplatformLibrary)
     alias(libs.plugins.kotlinxSerialization)
     alias(libs.plugins.kmpNativeCoroutines)
+    alias(libs.plugins.androidxRoom)
+    alias(libs.plugins.ksp)
 }
 
 kotlin {
@@ -14,6 +16,7 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
+            linkerOpts.add("-lsqlite3")
             baseName = "SharedLogic"
             isStatic = true
         }
@@ -42,6 +45,8 @@ kotlin {
             implementation(libs.kotlinx.datetime)
             implementation(libs.ktor.client.core)
             implementation(libs.koin.core)
+            implementation(libs.androidx.room.runtime)
+            implementation(libs.androidx.sqlite.bundled)
             api(libs.kmp.observable.viewmodel)
         }
         androidMain.dependencies {
@@ -53,5 +58,20 @@ kotlin {
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
+    }
+}
+
+room {
+    schemaDirectory("$projectDir/schemas")
+}
+
+dependencies {
+    listOf(
+        "kspAndroid",
+        "kspIosSimulatorArm64",
+        "kspIosArm64",
+        "kspIosX64"
+    ).forEach {
+        add(it, libs.androidx.room.compiler)
     }
 }
