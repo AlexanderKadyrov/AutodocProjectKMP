@@ -9,7 +9,7 @@ import androidx.room.Query
 import androidx.room.Dao
 
 @Dao
-interface NewsDao {
+internal interface NewsDao {
 
     @Insert
     suspend fun insert(entity: NewsEntity)
