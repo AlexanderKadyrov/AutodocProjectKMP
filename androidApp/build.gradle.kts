@@ -22,6 +22,7 @@ dependencies {
     implementation(libs.compose.material3)
     implementation(libs.coil.network.ktor)
     implementation(libs.coil.compose)
+    implementation(libs.koin.android)
 
     implementation(libs.compose.uiToolingPreview)
     debugImplementation(libs.compose.uiTooling)
