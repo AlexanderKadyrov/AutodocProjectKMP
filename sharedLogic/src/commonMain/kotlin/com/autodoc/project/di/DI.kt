@@ -8,6 +8,7 @@ import kotlinx.serialization.json.Json
 import org.koin.core.context.startKoin
 import io.ktor.client.HttpClient
 import io.ktor.http.ContentType
+import org.koin.core.module.Module
 import org.koin.dsl.module
 
 private val dataModule = module {
@@ -23,6 +24,8 @@ private val dataModule = module {
         NewsServiceImpl(get())
     }
 }
+
+expect fun platformModule(): Module
 
 fun initKoin() {
     startKoin {

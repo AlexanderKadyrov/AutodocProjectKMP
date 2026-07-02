@@ -1,4 +1,4 @@
-package com.autodoc.project.di
+package com.autodoc.project.modules
 
 import com.autodoc.project.database.AppDatabase
 import com.autodoc.project.database.getDatabase
