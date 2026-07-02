@@ -12,7 +12,7 @@ import androidx.room.Dao
 interface NewsDao {
 
     @Insert
-    suspend fun insert(model: NewsEntity)
+    suspend fun insert(entity: NewsEntity)
 
     @Query("SELECT * FROM NewsEntity")
     fun getAllAsFlow(): Flow<List<NewsEntity>>
