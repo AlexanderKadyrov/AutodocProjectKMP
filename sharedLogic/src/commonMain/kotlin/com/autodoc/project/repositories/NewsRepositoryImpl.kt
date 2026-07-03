@@ -24,4 +24,8 @@ internal class NewsRepositoryImpl(
     override fun load(): Flow<List<NewsEntity>> {
         return dao.getAllAsFlow()
     }
+
+    override fun load(id: Int): Flow<NewsEntity?> {
+        return dao.getByIdAsFlow(id)
+    }
 }
