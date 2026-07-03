@@ -1,8 +1,10 @@
+import KMPObservableViewModelSwiftUI
 import SharedLogic
 import SwiftUI
 
 struct NewsComponentView: View {
     
+    @StateViewModel
     var viewModel: NewsEntityViewModel
     
     let onFavoriteAction: () -> Void
@@ -24,6 +26,7 @@ struct NewsComponentView: View {
                     
                     HeaderFavoriteView(
                         title: viewModel.entity.title,
+                        isFavorite: viewModel.isFavorite,
                         onFavoriteAction: onFavoriteAction
                     )
                     
