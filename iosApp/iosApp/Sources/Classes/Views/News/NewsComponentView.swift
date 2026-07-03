@@ -3,7 +3,7 @@ import SwiftUI
 
 struct NewsComponentView: View {
     
-    var model: NewsEntity
+    var viewModel: NewsEntityViewModel
     
     var body: some View {
         VStack(alignment: .leading, spacing: .zero) {
@@ -12,20 +12,20 @@ struct NewsComponentView: View {
                 
                 VStack(alignment: .leading, spacing: 16) {
                     
-                    HeaderFavoriteView(title: model.title)
+                    HeaderFavoriteView(title: viewModel.entity.title)
                     
-                    Text(model.descriptions)
+                    Text(viewModel.entity.descriptions)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .font(Font.system(size: 14))
                     
                     HStack(alignment: .center, spacing: 16) {
                         
-                        Text(model.publishedDate)
+                        Text(viewModel.entity.publishedDate)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .font(Font.system(size: 12))
                         
                         ZStack(alignment: .center) {
-                            Text(model.categoryType)
+                            Text(viewModel.entity.categoryType)
                                 .padding(EdgeInsets(top: 2, leading: 8, bottom: 2, trailing: 8))
                                 .fixedSize(horizontal: true, vertical: false)
                                 .foregroundStyle(Color(hex: "FFFFFF"))
@@ -37,7 +37,7 @@ struct NewsComponentView: View {
                 }
                 .padding([.leading, .trailing, .bottom], 16)
 
-                if let source = model.titleImageUrl, let url = URL(string: source) {
+                if let source = viewModel.entity.titleImageUrl, let url = URL(string: source) {
                     CachedAsyncImage(url: url) { image in
                         image
                             .resizable()
