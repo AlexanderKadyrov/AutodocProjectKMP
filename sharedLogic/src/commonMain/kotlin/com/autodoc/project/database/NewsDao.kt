@@ -1,16 +1,23 @@
 package com.autodoc.project.database
 
-import androidx.room.Dao
+import com.autodoc.project.services.news.NewsEntity
+
+import kotlinx.coroutines.flow.Flow
+
+import androidx.room.OnConflictStrategy
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import com.autodoc.project.services.news.NewsEntity
-import kotlinx.coroutines.flow.Flow
+import androidx.room.Dao
 
 @Dao
 internal interface NewsDao {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(entity: NewsEntity)
+
+    @Delete
+    suspend fun delete(entity: NewsEntity)
 
     @Query("SELECT * FROM NewsEntity")
     fun getAllAsFlow(): Flow<List<NewsEntity>>

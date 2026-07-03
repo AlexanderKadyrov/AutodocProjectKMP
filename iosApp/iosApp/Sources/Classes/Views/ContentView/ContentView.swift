@@ -15,14 +15,15 @@ struct ContentView: View {
         NavigationStack(path: $path) {
             List {
                 ForEach(viewModel.newsEntityViewModels, id: \.self) { viewModel in
-                    NewsComponentView(viewModel: viewModel)
-                        .listRowInsets(.init(.zero))
-                        .listRowSeparator(.hidden)
-                        .padding(.all, 16)
-                        .onTapGesture {
-                            guard let url = URL(string: viewModel.entity.fullUrl) else { return }
-                            path.append(.detail(url))
-                        }
+                    NewsComponentView(viewModel: viewModel) {
+                        viewModel.addFavorite()
+                    } onTapAction: {
+                        guard let url = URL(string: viewModel.entity.fullUrl) else { return }
+                        path.append(.detail(url))
+                    }
+                    .listRowInsets(.init(.zero))
+                    .listRowSeparator(.hidden)
+                    .padding(.all, 16)
                 }
             }
             .listStyle(.plain)

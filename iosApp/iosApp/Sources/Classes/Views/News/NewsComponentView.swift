@@ -5,14 +5,27 @@ struct NewsComponentView: View {
     
     var viewModel: NewsEntityViewModel
     
+    let onFavoriteAction: () -> Void
+    let onTapAction: () -> Void
+    
     var body: some View {
+        Button(action: onTapAction) {
+            componentView()
+        }
+    }
+    
+    @ViewBuilder
+    private func componentView() -> some View {
         VStack(alignment: .leading, spacing: .zero) {
             
             VStack(alignment: .leading, spacing: .zero) {
                 
                 VStack(alignment: .leading, spacing: 16) {
                     
-                    HeaderFavoriteView(title: viewModel.entity.title)
+                    HeaderFavoriteView(
+                        title: viewModel.entity.title,
+                        onFavoriteAction: onFavoriteAction
+                    )
                     
                     Text(viewModel.entity.descriptions)
                         .frame(maxWidth: .infinity, alignment: .leading)
