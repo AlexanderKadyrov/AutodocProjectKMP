@@ -8,14 +8,13 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 
 import com.autodoc.project.services.news.NewsFactory
-import com.autodoc.project.services.news.NewsEntity
 
 class NewsViewModel: ViewModel() {
 
     private val newsFactory = NewsFactory()
 
     @NativeCoroutinesState
-    val news: StateFlow<List<NewsEntity>> = newsFactory.news
+    val viewModels: StateFlow<List<NewsEntityViewModel>> = newsFactory.news
         .stateIn(
             viewModelScope,
             SharingStarted.WhileSubscribed(5000),
