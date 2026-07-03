@@ -1,6 +1,6 @@
 package com.autodoc.project.views
 
-import com.autodoc.project.services.news.NewsEntity
+import com.autodoc.project.screens.NewsEntityViewModel
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -26,7 +26,7 @@ import coil3.compose.AsyncImage
 
 @Composable
 fun NewsComponentView(
-    model: NewsEntity,
+    viewModel: NewsEntityViewModel,
     modifier: Modifier
 ) {
     Column(
@@ -44,12 +44,12 @@ fun NewsComponentView(
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 Text(
-                    text = model.title,
+                    text = viewModel.entity.title,
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Bold
                 )
                 Text(
-                    text = model.descriptions,
+                    text = viewModel.entity.descriptions,
                     fontSize = 14.sp,
                 )
                 Row(
@@ -58,14 +58,14 @@ fun NewsComponentView(
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(
-                        text = model.publishedDate,
+                        text = viewModel.entity.publishedDate,
                         fontSize = 12.sp
                     )
                     Box(
                         modifier = Modifier.background(Color(0xFFEE6B6E))
                     ) {
                         Text(
-                            text = model.categoryType,
+                            text = viewModel.entity.categoryType,
                             color = Color.White,
                             modifier = Modifier.padding(horizontal = 8.dp, vertical = 2.dp),
                             fontSize = 12.sp
@@ -73,10 +73,10 @@ fun NewsComponentView(
                     }
                 }
             }
-            model.titleImageUrl?.let {
+            viewModel.entity.titleImageUrl?.let {
                 AsyncImage(
                     model = it,
-                    contentDescription = model.title,
+                    contentDescription = viewModel.entity.title,
                     contentScale = ContentScale.Crop,
                     modifier = Modifier
                         .clip(RoundedCornerShape(15.dp))
