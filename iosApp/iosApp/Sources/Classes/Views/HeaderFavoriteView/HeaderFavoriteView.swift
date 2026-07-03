@@ -3,6 +3,7 @@ import SwiftUI
 struct HeaderFavoriteView: View {
     
     let title: String
+    let isFavorite: Bool
     let onFavoriteAction: () -> Void
     
     var body: some View {
@@ -15,7 +16,7 @@ struct HeaderFavoriteView: View {
             }
             VStack {
                 Button(action: onFavoriteAction) {
-                    Image(systemName: "star")
+                    Image(systemName: isFavorite ? "star.fill" : "star")
                         .renderingMode(.original)
                         .resizable()
                         .frame(width: 24, height: 24)
@@ -23,7 +24,7 @@ struct HeaderFavoriteView: View {
                 }
                 .frame(width: 44, height: 44)
                 .background(Color.black.opacity(0.7))
-                .cornerRadius(15)                
+                .cornerRadius(15)
                 Spacer()
             }
         }
