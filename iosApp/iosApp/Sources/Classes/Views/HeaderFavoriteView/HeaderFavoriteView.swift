@@ -3,6 +3,7 @@ import SwiftUI
 struct HeaderFavoriteView: View {
     
     let title: String
+    let action: () -> Void
     
     var body: some View {
         HStack(spacing: 16) {
@@ -13,19 +14,16 @@ struct HeaderFavoriteView: View {
                 Spacer()
             }
             VStack {
-                Button {
-                    
-                } label: {
+                Button(action: action) {
                     Image(systemName: "star")
                         .renderingMode(.original)
                         .resizable()
                         .frame(width: 24, height: 24)
                         .scaledToFill()
-                    
                 }
                 .frame(width: 44, height: 44)
                 .background(Color.black.opacity(0.7))
-                .cornerRadius(15)
+                .cornerRadius(15)                
                 Spacer()
             }
         }
