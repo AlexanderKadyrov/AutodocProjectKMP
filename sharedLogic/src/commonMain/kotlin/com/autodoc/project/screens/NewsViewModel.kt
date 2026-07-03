@@ -14,7 +14,7 @@ class NewsViewModel: ViewModel() {
     private val newsFactory = NewsFactory()
 
     @NativeCoroutinesState
-    val viewModels: StateFlow<List<NewsEntityViewModel>> = newsFactory.news
+    val newsEntityViewModels: StateFlow<List<NewsEntityViewModel>> = newsFactory.news
         .stateIn(
             viewModelScope,
             SharingStarted.WhileSubscribed(5000),
