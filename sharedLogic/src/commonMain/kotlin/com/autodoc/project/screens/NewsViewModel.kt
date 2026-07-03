@@ -7,15 +7,15 @@ import com.rickclephas.kmp.observableviewmodel.stateIn
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 
-import com.autodoc.project.services.news.NewsRepository
+import com.autodoc.project.services.news.NewsFactory
 import com.autodoc.project.services.news.NewsEntity
 
 class NewsViewModel: ViewModel() {
 
-    private val newsRepository = NewsRepository()
+    private val newsFactory = NewsFactory()
 
     @NativeCoroutinesState
-    val news: StateFlow<List<NewsEntity>> = newsRepository.news
+    val news: StateFlow<List<NewsEntity>> = newsFactory.news
         .stateIn(
             viewModelScope,
             SharingStarted.WhileSubscribed(5000),
@@ -23,6 +23,6 @@ class NewsViewModel: ViewModel() {
         )
 
     fun fetchNews(offset: Int, limit: Int) {
-        newsRepository.fetchNews(offset, limit)
+        newsFactory.fetchNews(offset, limit)
     }
 }
