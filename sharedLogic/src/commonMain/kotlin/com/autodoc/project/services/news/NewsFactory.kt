@@ -8,7 +8,7 @@ import org.koin.core.component.inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
-internal class NewsRepository: KoinComponent {
+internal class NewsFactory: KoinComponent {
 
     private val newsService: NewsService by inject()
 
