@@ -4,6 +4,8 @@ import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import com.autodoc.project.services.news.NewsServiceImpl
 import com.autodoc.project.services.news.NewsService
 import com.autodoc.project.modules.databaseModule
+import com.autodoc.project.repositories.NewsRepositoryImpl
+import com.autodoc.project.repositories.NewsRepository
 import io.ktor.serialization.kotlinx.json.json
 import org.koin.dsl.KoinAppDeclaration
 import kotlinx.serialization.json.Json
@@ -23,6 +25,9 @@ private val dataModule = module {
     }
     single<NewsService> {
         NewsServiceImpl(get())
+    }
+    single<NewsRepository> {
+        NewsRepositoryImpl(get())
     }
 }
 

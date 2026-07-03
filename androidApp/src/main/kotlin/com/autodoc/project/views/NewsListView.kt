@@ -22,15 +22,15 @@ fun NewsListView(
     LaunchedEffect(Unit) {
         viewModel.fetchNews(1, 15)
     }
-    val news by viewModel.news.collectAsStateWithLifecycle()
+    val viewModels by viewModel.newsEntityViewModels.collectAsStateWithLifecycle()
     LazyColumn {
-        items(news) { model ->
+        items(viewModels) { viewModel ->
             NewsComponentView(
-                model = model,
+                viewModel = viewModel,
                 modifier = Modifier
                     .padding(16.dp)
                     .clickable {
-                        clickable(model.fullUrl)
+                        clickable(viewModel.entity.fullUrl)
                     }
             )
         }
