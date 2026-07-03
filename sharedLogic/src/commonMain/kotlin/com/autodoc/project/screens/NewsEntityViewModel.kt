@@ -15,7 +15,7 @@ class NewsEntityViewModel(
 
     private val newsRepository: NewsRepository by inject()
 
-    fun add(entity: NewsEntity) {
+    fun addFavorite() {
         viewModelScope.launch {
             newsRepository.add(entity)
         }
