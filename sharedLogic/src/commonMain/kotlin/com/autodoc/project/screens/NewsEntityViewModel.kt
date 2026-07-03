@@ -7,8 +7,10 @@ import com.rickclephas.kmp.observableviewmodel.launch
 
 import com.autodoc.project.repositories.NewsRepository
 import com.autodoc.project.services.news.NewsEntity
+
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.StateFlow
 
 import org.koin.core.component.KoinComponent
@@ -28,6 +30,16 @@ class NewsEntityViewModel(
         SharingStarted.WhileSubscribed(5000),
         false
     )
+
+    init {
+        viewModelScope.launch {
+            newsRepository
+                .load(entity.id)
+                .collectLatest { entity ->
+                    _isFavorite.value = entity != null
+                }
+        }
+    }
 
     fun tapFavorite() {
         _isFavorite.value = !_isFavorite.value
