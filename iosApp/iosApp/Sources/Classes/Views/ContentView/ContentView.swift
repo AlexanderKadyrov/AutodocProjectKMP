@@ -14,13 +14,13 @@ struct ContentView: View {
     var body: some View {
         NavigationStack(path: $path) {
             List {
-                ForEach(viewModel.news, id: \.self) { model in
-                    NewsComponentView(model: model)
+                ForEach(viewModel.newsEntityViewModels, id: \.self) { viewModel in
+                    NewsComponentView(viewModel: viewModel)
                         .listRowInsets(.init(.zero))
                         .listRowSeparator(.hidden)
                         .padding(.all, 16)
                         .onTapGesture {
-                            guard let url = URL(string: model.fullUrl) else { return }
+                            guard let url = URL(string: viewModel.entity.fullUrl) else { return }
                             path.append(.detail(url))
                         }
                 }
