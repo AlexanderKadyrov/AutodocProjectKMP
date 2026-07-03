@@ -6,9 +6,7 @@ import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
 class NewsEntityViewModel(
-    entity: NewsEntity
+    val entity: NewsEntity
 ): KoinComponent {
-
     private val newsRepository: NewsRepository by inject()
-
 }
