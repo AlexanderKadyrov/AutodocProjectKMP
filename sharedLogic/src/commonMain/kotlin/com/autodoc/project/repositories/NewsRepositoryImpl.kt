@@ -6,7 +6,7 @@ import com.autodoc.project.database.NewsDao
 
 import kotlinx.coroutines.flow.Flow
 
-internal class NewsRepository(
+internal class NewsRepositoryImpl(
     private val database: AppDatabase
 ) {
     private val dao: NewsDao by lazy {
