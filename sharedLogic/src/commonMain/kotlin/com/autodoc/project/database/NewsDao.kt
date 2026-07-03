@@ -21,4 +21,7 @@ internal interface NewsDao {
 
     @Query("SELECT * FROM NewsEntity")
     fun getAllAsFlow(): Flow<List<NewsEntity>>
+
+    @Query("SELECT * FROM NewsEntity WHERE id = :id")
+    fun getByIdAsFlow(id: Int): Flow<NewsEntity?>
 }
