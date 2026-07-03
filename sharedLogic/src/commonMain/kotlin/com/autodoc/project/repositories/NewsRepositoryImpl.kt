@@ -17,7 +17,15 @@ internal class NewsRepositoryImpl(
         dao.insert(entity)
     }
 
+    override suspend fun delete(entity: NewsEntity) {
+        dao.delete(entity)
+    }
+
     override fun load(): Flow<List<NewsEntity>> {
         return dao.getAllAsFlow()
+    }
+
+    override fun load(id: Int): Flow<NewsEntity?> {
+        return dao.getByIdAsFlow(id)
     }
 }

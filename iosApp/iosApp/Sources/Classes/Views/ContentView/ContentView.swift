@@ -16,7 +16,7 @@ struct ContentView: View {
             List {
                 ForEach(viewModel.newsEntityViewModels, id: \.self) { viewModel in
                     NewsComponentView(viewModel: viewModel) {
-                        viewModel.addFavorite()
+                        viewModel.tapFavorite()
                     } onTapAction: {
                         guard let url = URL(string: viewModel.entity.fullUrl) else { return }
                         path.append(.detail(url))
