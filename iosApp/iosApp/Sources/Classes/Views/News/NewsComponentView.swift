@@ -12,9 +12,7 @@ struct NewsComponentView: View {
                 
                 VStack(alignment: .leading, spacing: 16) {
                     
-                    Text(model.title)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .font(Font.system(size: 16, weight: .bold))
+                    HeaderFavoriteView(title: model.title)
                     
                     Text(model.descriptions)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -29,6 +27,7 @@ struct NewsComponentView: View {
                         ZStack(alignment: .center) {
                             Text(model.categoryType)
                                 .padding(EdgeInsets(top: 2, leading: 8, bottom: 2, trailing: 8))
+                                .fixedSize(horizontal: true, vertical: false)
                                 .foregroundStyle(Color(hex: "FFFFFF"))
                                 .font(Font.system(size: 12))
                                 .lineLimit(1)
