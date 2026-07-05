@@ -32,7 +32,7 @@ class NewsViewModel: ViewModel() {
         viewModelScope.launch {
             fetchNewsAsFlow(offset, limit)
                 .collectLatest {
-                    _newsViewModels.tryEmit(it)
+                    _newsViewModels.value = it
                 }
         }
     }
