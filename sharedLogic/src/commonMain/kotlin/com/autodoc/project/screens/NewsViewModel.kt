@@ -1,6 +1,6 @@
 package com.autodoc.project.screens
 
-import com.autodoc.project.providers.news.NewsNetworkProvider
+import com.autodoc.project.providers.news.NewsProvider
 
 import com.rickclephas.kmp.nativecoroutines.NativeCoroutinesState
 import com.rickclephas.kmp.observableviewmodel.ViewModel
@@ -14,9 +14,9 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.Flow
 
-class NewsViewModel: ViewModel() {
-
-    private val provider = NewsNetworkProvider()
+class NewsViewModel<P: NewsProvider>(
+    val provider: P
+): ViewModel() {
 
     private val _newsViewModels = MutableStateFlow(emptyList<NewsEntityViewModel>())
 
