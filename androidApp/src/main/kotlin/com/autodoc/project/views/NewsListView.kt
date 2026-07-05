@@ -1,5 +1,8 @@
 package com.autodoc.project.views
 
+import com.autodoc.project.providers.news.NewsNetworkProvider
+import com.autodoc.project.screens.NewsViewModel
+
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 import androidx.compose.foundation.lazy.LazyColumn
@@ -12,13 +15,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
-import com.autodoc.project.screens.NewsViewModel
-
 @Composable
 fun NewsListView(
     clickable: (String) -> Unit
 ) {
-    val viewModel = NewsViewModel()
+    val viewModel = NewsViewModel(provider = NewsNetworkProvider())
     LaunchedEffect(Unit) {
         viewModel.fetchNews(1, 15)
     }
