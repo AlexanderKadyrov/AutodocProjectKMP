@@ -27,6 +27,9 @@ fun NewsListView(
         items(viewModels) { viewModel ->
             NewsComponentView(
                 viewModel = viewModel,
+                onFavoriteAction = {
+                    viewModel.tapFavorite()
+                },
                 modifier = Modifier
                     .padding(16.dp)
                     .clickable {
