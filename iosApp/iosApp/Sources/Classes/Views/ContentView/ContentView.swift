@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack(path: $path) {
             List {
-                ForEach(viewModel.newsEntityViewModels, id: \.self) { viewModel in
+                ForEach(viewModel.newsViewModels, id: \.self) { viewModel in
                     NewsComponentView(viewModel: viewModel) {
                         viewModel.tapFavorite()
                     } onTapAction: {
