@@ -20,7 +20,7 @@ internal interface NewsDao {
     suspend fun delete(entity: NewsEntity)
 
     @Query("SELECT * FROM NewsEntity")
-    fun getAll(): List<NewsEntity>
+    suspend fun getAll(): List<NewsEntity>
 
     @Query("SELECT * FROM NewsEntity")
     fun getAllAsFlow(): Flow<List<NewsEntity>>
