@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.Column
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.background
@@ -27,7 +27,8 @@ import coil3.compose.AsyncImage
 @Composable
 fun NewsComponentView(
     viewModel: NewsEntityViewModel,
-    modifier: Modifier
+    modifier: Modifier,
+    onFavoriteAction: () -> Unit
 ) {
     Column(
         modifier = modifier
@@ -43,10 +44,11 @@ fun NewsComponentView(
                     .fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                Text(
-                    text = viewModel.entity.title,
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold
+                val isFavorite = viewModel.isFavorite.collectAsState().value
+                HeaderFavoriteView(
+                    title = viewModel.entity.title,
+                    isFavorite = isFavorite,
+                    onFavoriteAction = onFavoriteAction
                 )
                 Text(
                     text = viewModel.entity.descriptions,
