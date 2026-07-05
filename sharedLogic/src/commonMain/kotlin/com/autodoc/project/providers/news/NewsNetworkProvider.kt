@@ -8,7 +8,7 @@ import org.koin.core.component.inject
 
 import kotlin.getValue
 
-internal class NewsNetworkProvider: KoinComponent {
+class NewsNetworkProvider: KoinComponent {
 
     private val newsService: NewsService by inject()
 
