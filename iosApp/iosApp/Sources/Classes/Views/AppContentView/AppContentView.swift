@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ContentView: View {
+struct AppContentView: View {
     
     @State
     private var path: [Route] = []
