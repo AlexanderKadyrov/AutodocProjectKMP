@@ -36,7 +36,7 @@ class NewsEntityViewModel(
             newsRepository
                 .loadAsFlow(entity.id)
                 .collectLatest { entity ->
-                    _isFavorite.tryEmit(entity != null)
+                    _isFavorite.value = entity != null
                 }
         }
     }
