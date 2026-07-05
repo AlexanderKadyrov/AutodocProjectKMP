@@ -14,7 +14,7 @@ import com.autodoc.project.views.CustomWebView
 import com.autodoc.project.views.NewsListView
 
 @Composable
-fun App() {
+fun AppContentView() {
     val navController = rememberNavController()
     NavigationHost(
         navController = navController,

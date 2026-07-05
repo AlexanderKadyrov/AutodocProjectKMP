@@ -1,20 +1,27 @@
 package com.autodoc.project.screens
 
+import com.autodoc.project.providers.news.NewsProvider
+
 import com.rickclephas.kmp.nativecoroutines.NativeCoroutinesState
 import com.rickclephas.kmp.observableviewmodel.ViewModel
 import com.rickclephas.kmp.observableviewmodel.stateIn
+import com.rickclephas.kmp.observableviewmodel.launch
 
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.Flow
 
-import com.autodoc.project.services.news.NewsFactory
+class NewsViewModel<P: NewsProvider>(
+    val provider: P
+): ViewModel() {
 
-class NewsViewModel: ViewModel() {
-
-    private val newsFactory = NewsFactory()
+    private val _newsViewModels = MutableStateFlow(emptyList<NewsEntityViewModel>())
 
     @NativeCoroutinesState
-    val newsEntityViewModels: StateFlow<List<NewsEntityViewModel>> = newsFactory.news
+    val newsViewModels: StateFlow<List<NewsEntityViewModel>> = _newsViewModels
         .stateIn(
             viewModelScope,
             SharingStarted.WhileSubscribed(5000),
@@ -22,6 +29,18 @@ class NewsViewModel: ViewModel() {
         )
 
     fun fetchNews(offset: Int, limit: Int) {
-        newsFactory.fetchNews(offset, limit)
+        viewModelScope.launch {
+            fetchNewsAsFlow(offset, limit)
+                .collectLatest {
+                    _newsViewModels.value = it
+                }
+        }
+    }
+
+    private suspend fun fetchNewsAsFlow(offset: Int, limit: Int): Flow<List<NewsEntityViewModel>> {
+        val viewModels = provider
+            .fetchNews(offset, limit)
+            .map { NewsEntityViewModel(it) }
+        return flowOf(viewModels)
     }
 }
