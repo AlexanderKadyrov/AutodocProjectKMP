@@ -34,9 +34,9 @@ class NewsEntityViewModel(
     init {
         viewModelScope.launch {
             newsRepository
-                .load(entity.id)
+                .loadAsFlow(entity.id)
                 .collectLatest { entity ->
-                    _isFavorite.value = entity != null
+                    _isFavorite.tryEmit(entity != null)
                 }
         }
     }
