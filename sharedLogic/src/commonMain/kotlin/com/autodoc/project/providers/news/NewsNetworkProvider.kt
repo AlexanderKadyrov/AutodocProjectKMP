@@ -8,11 +8,11 @@ import org.koin.core.component.inject
 
 import kotlin.getValue
 
-class NewsNetworkProvider: KoinComponent {
+class NewsNetworkProvider: NewsProvider, KoinComponent {
 
     private val newsService: NewsService by inject()
 
-    suspend fun fetchNews(offset: Int, limit: Int): List<NewsEntity> {
+    override suspend fun fetchNews(offset: Int, limit: Int): List<NewsEntity> {
         return newsService.fetchNews(offset, limit)
     }
 }
