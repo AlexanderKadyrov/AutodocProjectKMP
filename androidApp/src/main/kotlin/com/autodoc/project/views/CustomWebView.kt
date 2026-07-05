@@ -20,6 +20,7 @@ fun CustomWebView(
             WebView(context).apply {
                 webViewClient = WebViewClient()
                 settings.javaScriptEnabled = true
+                settings.domStorageEnabled = true
                 loadUrl(url)
             }
         }
