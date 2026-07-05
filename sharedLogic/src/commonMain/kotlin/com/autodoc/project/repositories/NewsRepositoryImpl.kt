@@ -21,11 +21,15 @@ internal class NewsRepositoryImpl(
         dao.delete(entity)
     }
 
-    override fun load(): Flow<List<NewsEntity>> {
+    override suspend fun loadAll(): List<NewsEntity> {
+        return dao.getAll()
+    }
+
+    override fun loadAllAsFlow(): Flow<List<NewsEntity>> {
         return dao.getAllAsFlow()
     }
 
-    override fun load(id: Int): Flow<NewsEntity?> {
+    override fun loadAsFlow(id: Int): Flow<NewsEntity?> {
         return dao.getByIdAsFlow(id)
     }
 }
