@@ -15,7 +15,11 @@ The project implements a news feed screen.
 ![](https://github.com/AlexanderKadyrov/AutodocProjectKMP/blob/master/screenshots/screenshot_1.png?raw=true)
 
 ### iOS
-![](https://github.com/AlexanderKadyrov/AutodocProjectKMP/blob/master/screenshots/screenshot_2.png?raw=true)
+<p align="center">
+  <img alt="iOS News view screenshot" src="screenshots/screenshot_2.png" width="280">
+</p>
 
 ### Android
-![](https://github.com/AlexanderKadyrov/AutodocProjectKMP/blob/master/screenshots/screenshot_3.png?raw=true)
+<p align="center">
+  <img alt="Android News view screenshot" src="screenshots/screenshot_3.png" width="280">
+</p>
